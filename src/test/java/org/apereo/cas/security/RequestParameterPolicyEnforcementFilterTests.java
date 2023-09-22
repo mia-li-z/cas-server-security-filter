@@ -196,9 +196,6 @@ public final class RequestParameterPolicyEnforcementFilterTests {
                 .thenReturn("none");
         when(filterConfig.getInitParameter(RequestParameterPolicyEnforcementFilter.PARAMETERS_TO_CHECK))
                 .thenReturn(null);
-        when(filterConfig.getInitParameter(AbstractSecurityFilter.LOGGER_HANDLER_CLASS_NAME))
-                .thenReturn(SLF4JBridgeHandler.class.getCanonicalName());
-
         filter.init(filterConfig);
         assertTrue(filter.getLogger().getHandlers().length > 0);
         assertTrue(filter.getLogger().getHandlers()[0] instanceof SLF4JBridgeHandler);
